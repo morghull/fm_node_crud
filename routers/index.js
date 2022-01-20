@@ -11,7 +11,8 @@ router
 router
   .route('/thing/:id')
   .get(ThingController.getThing)
+  .patch(ThingController.updateThing)
   .delete(ThingController.deleteThing);
-// .patch(ThingController.updateThing)
+
 
 module.exports = router;
