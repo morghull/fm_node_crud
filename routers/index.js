@@ -8,8 +8,10 @@ router
   .post(ThingController.createThing)
   .get(ThingController.getAllThings);
 
-router.route('/thing/:id').get(ThingController.getThing);
+router
+  .route('/thing/:id')
+  .get(ThingController.getThing)
+  .delete(ThingController.deleteThing);
 // .patch(ThingController.updateThing)
-// .delete(ThingController.deleteThing);
 
 module.exports = router;

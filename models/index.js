@@ -19,7 +19,8 @@ fs.readdirSync(__dirname)
       /\.js$/.test(fileName) && fileName !== currentFileName
   )
   .forEach((fileName) => {
-    console.log(path.resolve(__dirname, fileName));
+    const absPath = path.resolve(__dirname, fileName);
+    const Model = require(absPath);
     Model.client = client;
     db[Model.name] = Model;
   });

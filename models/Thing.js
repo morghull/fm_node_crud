@@ -43,7 +43,7 @@ class Thing {
   static async updateByPk() {}
   static async deleteByPk(valuePk) {
     const { rows } = await this.client.query(`
-      SELECT * FROM ${this.tableName}
+      DELETE FROM ${this.tableName}
       WHERE "id"=${valuePk}
       RETURNING *;
    `);
