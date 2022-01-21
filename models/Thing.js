@@ -51,10 +51,11 @@ class Thing {
           typeof value === 'string' ? `'${value}'` : value
         }`;
       })
+      .concat(['"updatedAt"=default'])
       .join(',');
     const { rows } = await this.client.query(`
          UPDATE ${this.tableName} 
-         SET ${updateStrAttrsAndValues},"updatedAt"=default
+         SET ${updateStrAttrsAndValues}
          WHERE "id"=${valuePk}
          RETURNING *;
       `);
